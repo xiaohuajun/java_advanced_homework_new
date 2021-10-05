@@ -55,7 +55,7 @@ public class RpcNettyClientSync {
     }
   }
 
-  public RpcNettyClientSync getInstance() {
+  public static  RpcNettyClientSync getInstance() {
     return EnumSingleton.INSTANCE.getClientSyncInstance();
   }
 
