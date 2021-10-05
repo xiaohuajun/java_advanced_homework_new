@@ -5,7 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
  * @author xiaohuajun
@@ -17,14 +19,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Slf4j
 public class ServerApplication  implements ApplicationRunner {
 
-  private RpcNettyServer rpcNettyServer;
+  private final RpcNettyServer rpcNettyServer;
 
   public ServerApplication(RpcNettyServer rpcNettyServer) {
     this.rpcNettyServer = rpcNettyServer;
   }
 
   public static void main(String[] args) {
-    SpringApplication.run(ServerApplication.class, args);
+    SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(ServerApplication.class);
+      springApplicationBuilder.web(WebApplicationType.NONE).run(args);
+    //SpringApplication.run(ServerApplication.class, args);
   }
 
   @Override

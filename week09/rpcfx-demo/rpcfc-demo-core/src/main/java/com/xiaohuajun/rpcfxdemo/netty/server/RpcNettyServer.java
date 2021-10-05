@@ -34,7 +34,7 @@ public class RpcNettyServer {
     this.context = context;
   }
 
-  public void run() {
+  public void run() throws InterruptedException {
     boss = new NioEventLoopGroup(1);
     worker = new NioEventLoopGroup();
     ServerBootstrap bootstrap = new ServerBootstrap();
@@ -47,10 +47,11 @@ public class RpcNettyServer {
             pipeline.addLast("Message Decoder", new RpcDecoder());
             pipeline.addLast("Message Handler", new RpcServerHandler(context));
           }
-
         });
-
-
+    int port = 8080;
+    Channel channel = bootstrap.bind(port).sync().channel();
+    log.info("Netty server listen in port: {}" ,port);
+    channel.closeFuture().sync();
   }
 
 
