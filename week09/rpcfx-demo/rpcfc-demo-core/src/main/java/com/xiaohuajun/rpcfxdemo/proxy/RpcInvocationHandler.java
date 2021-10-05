@@ -19,7 +19,7 @@ public class RpcInvocationHandler implements InvocationHandler, MethodIntercepto
 
   private final Class<?> serverClass;
 
-  private final  String url;
+  private final String url;
 
   public RpcInvocationHandler(Class<?> serverClass, String url) {
     this.serverClass = serverClass;
@@ -36,7 +36,7 @@ public class RpcInvocationHandler implements InvocationHandler, MethodIntercepto
   @Override
   public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy)
       throws Throwable {
-    return process(serverClass,method,objects,url);
+    return process(serverClass, method, objects, url);
   }
 
 
@@ -49,12 +49,9 @@ public class RpcInvocationHandler implements InvocationHandler, MethodIntercepto
     rpcRequest.setMethod(method.getName());
     rpcRequest.setArgs(args);
 
-
     //使用netty发送请求到客户端
 
-
     //序列化返回结果
-
 
     return null;
   }
