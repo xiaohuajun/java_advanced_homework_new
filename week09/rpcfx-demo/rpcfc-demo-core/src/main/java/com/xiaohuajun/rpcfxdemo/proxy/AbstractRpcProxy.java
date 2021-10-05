@@ -11,6 +11,9 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public abstract class AbstractRpcProxy {
 
+  /**
+   * key:className value:被代理的对象
+   */
   private final Map<String, Object> proxyCache = new ConcurrentHashMap<>();
 
 
