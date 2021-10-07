@@ -30,7 +30,7 @@ public class RpcClientSyncHandler extends SimpleChannelInboundHandler<RpcProtoco
     log.info("netty client is receive message:length:{},content:{}", msgLen, msgContent);
     //将byte：反序列化；转换response对象
     RpcResponse response = JSON.parseObject(msgContent, RpcResponse.class);
-    log.info("Netty client serializer:{} ", rpcResponse.toString());
+    log.info("Netty client serializer:{} ", response.toString());
     rpcResponse = response;
     countDownLatch.countDown();
   }

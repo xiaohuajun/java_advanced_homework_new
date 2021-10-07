@@ -25,9 +25,14 @@ public class RpcInvocationHandler implements InvocationHandler, MethodIntercepto
 
   private final String url;
 
-  public RpcInvocationHandler(Class<?> serverClass, String url) {
+  static {
+    ParserConfig.getGlobalInstance().addAccept("com.xiaohuajun");
+  }
+
+  public <T> RpcInvocationHandler(Class<T> serverClass, String url) {
     this.serverClass = serverClass;
     this.url = url;
+
     ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
   }
 

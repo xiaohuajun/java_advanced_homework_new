@@ -92,7 +92,7 @@ public class RpcNettyClientSync {
           //替换自定义的处理器
           channel.pipeline().replace("clientHandler","clientHandlerSync",handler);
           //请求写入和刷新channel
-          channel.writeAndFlush(request).sync();
+          channel.writeAndFlush(rpcProtocol).sync();
           return handler.getRpcResponse();
         }catch (Exception e){
           log.error("channel send msg failed!");
@@ -107,8 +107,9 @@ public class RpcNettyClientSync {
     //创建新的channel
     Channel newChannel = createChannel(uri);
     newChannel.pipeline().replace("clientHandler","clientHandlerSync",handlerForNew);
+    channelMap.put(requestKey, newChannel);
     //请求写入和刷新channel
-    newChannel.writeAndFlush(request).sync();
+    newChannel.writeAndFlush(rpcProtocol).sync();
     return handlerForNew.getRpcResponse();
   }
 
