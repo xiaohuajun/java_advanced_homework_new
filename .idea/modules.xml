@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/java_advanced_homework_new.iml" filepath="$PROJECT_DIR$/.idea/java_advanced_homework_new.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week09/rpcfx-demo/rpcfx-demo-server.iml" filepath="$PROJECT_DIR$/week09/rpcfx-demo/rpcfx-demo-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week05/starter/starter.iml" filepath="$PROJECT_DIR$/week05/starter/starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week01/week01.iml" filepath="$PROJECT_DIR$/week01/week01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week02/week02.iml" filepath="$PROJECT_DIR$/week02/week02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week03/week03.iml" filepath="$PROJECT_DIR$/week03/week03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week04/week04.iml" filepath="$PROJECT_DIR$/week04/week04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week05/week05.iml" filepath="$PROJECT_DIR$/week05/week05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week06/week06.iml" filepath="$PROJECT_DIR$/week06/week06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week07/week07.iml" filepath="$PROJECT_DIR$/week07/week07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week08/week08.iml" filepath="$PROJECT_DIR$/week08/week08.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week09/week09.iml" filepath="$PROJECT_DIR$/week09/week09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week10/week10.iml" filepath="$PROJECT_DIR$/week10/week10.iml" />
+    </modules>
+  </component>
+</project>
