@@ -48,7 +48,7 @@ public class RedisOperationApplication {
     Thread thread2 = new Thread(RedisOperationApplication::count);
     thread1.start();
     thread2.start();
-    //主线程等待子线程结束才能结束
+    //join-主线程等待子线程结束才能结束
     thread1.join();
     thread2.join();
     Thread thread3 = new Thread(RedisOperationApplication::count);
