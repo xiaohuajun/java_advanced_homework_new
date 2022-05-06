@@ -15,9 +15,9 @@ public class BinarySearch {
         int[] c = {1, 3, 4, 5, 13, 15, 20, 20, 25, 29, 32, 37, 48, 48, 48, 79};
         int[] d = {1, 3, 4, 5, 13, 15, 20, 20, 25, 29, 32, 37, 48, 48, 48, 79};
 
-        int val = 19;
+        int val = 48;
         System.out.println("等值查找--->" + bSearch(a, val));
-        System.out.println("查找第一个等于的--->" + findFirstIndex(b, val));
+        System.out.println("查找第一个等于的--->" + findFirstIndexOther(b, val));
         System.out.println("查找最后一个等于的--->" + findLastIndex(c, val));
         System.out.println("查找第一个大于等于的--->" + findFirstGtVal(c, val));
         System.out.println("查找最后一个小于等于的--->" + findLastLtVal(d, val));
@@ -78,6 +78,32 @@ public class BinarySearch {
                     h = mid - 1;
                 }
             }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找第一个等于给定值的下标-数组中有重复数据-另外一钟写法
+     * @param a
+     * @param val
+     * @return
+     */
+    public static int findFirstIndexOther(int[] a,int val){
+        int n = a.length;
+        int l = 0;
+        int h = n - 1;
+        while(l <= h){
+            int mid = l + ((h - l) >> 1);
+            if(a[mid] >= val){
+                h = mid - 1;
+            }else {
+                l = mid + 1;
+            }
+        }
+        //如果val都比数组的元素大，最后一轮结束之后：low = n，会溢出
+        //a[mid] >= val 这个条件所有查找都往左边靠，l 是第一个等于val的
+        if(l < n && a[l] == val){
+            return  l;
         }
         return -1;
     }
