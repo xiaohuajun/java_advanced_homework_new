@@ -101,7 +101,7 @@ public class BinarySearch {
             }
         }
         //如果val都比数组的元素大，最后一轮结束之后：low = n，会溢出
-        //a[mid] >= val 这个条件所有查找都往左边靠，l 是第一个等于val的
+        //a[mid] >= val 这个条件所有查找一直往左边靠，l 是第一个等于val的
         if(l < n && a[l] == val){
             return  l;
         }
