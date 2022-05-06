@@ -14,13 +14,16 @@ public class BinarySearch {
         int[] b = {1, 3, 4, 5, 8, 12, 13, 20, 23, 29, 32, 37, 48, 48, 48, 79};
         int[] c = {1, 3, 4, 5, 13, 15, 20, 20, 25, 29, 32, 37, 48, 48, 48, 79};
         int[] d = {1, 3, 4, 5, 13, 15, 20, 20, 25, 29, 32, 37, 48, 48, 48, 79};
+        int[] e = {8, 9, 24, 48, 58, 79, 82,1, 3, 4, 5, 7};
 
-        int val = 48;
+        int val = 4;
         System.out.println("等值查找--->" + bSearch(a, val));
         System.out.println("查找第一个等于的--->" + findFirstIndexOther(b, val));
         System.out.println("查找最后一个等于的--->" + findLastIndex(c, val));
         System.out.println("查找第一个大于等于的--->" + findFirstGtVal(c, val));
         System.out.println("查找最后一个小于等于的--->" + findLastLtVal(d, val));
+        System.out.println("循环数组查找--->" + searchValLoopArray(e, val));
+
 
     }
 
@@ -84,26 +87,27 @@ public class BinarySearch {
 
     /**
      * 查找第一个等于给定值的下标-数组中有重复数据-另外一钟写法
+     *
      * @param a
      * @param val
      * @return
      */
-    public static int findFirstIndexOther(int[] a,int val){
+    public static int findFirstIndexOther(int[] a, int val) {
         int n = a.length;
         int l = 0;
         int h = n - 1;
-        while(l <= h){
+        while (l <= h) {
             int mid = l + ((h - l) >> 1);
-            if(a[mid] >= val){
+            if (a[mid] >= val) {
                 h = mid - 1;
-            }else {
+            } else {
                 l = mid + 1;
             }
         }
         //如果val都比数组的元素大，最后一轮结束之后：low = n，会溢出
         //a[mid] >= val 这个条件所有查找一直往左边靠，l 是第一个等于val的
-        if(l < n && a[l] == val){
-            return  l;
+        if (l < n && a[l] == val) {
+            return l;
         }
         return -1;
     }
@@ -185,11 +189,59 @@ public class BinarySearch {
                 if (mid == n - 1 || a[mid + 1] > val) {
                     return mid;
                 } else {
-                   //mid 的下一个都是小于等于的，那继续往右边找
-                   l = mid + 1;
+                    //mid 的下一个都是小于等于的，那继续往右边找
+                    l = mid + 1;
                 }
             } else {
                 h = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 给一个循环数组，在数组中查找等于目标值的元素下标
+     * [4,5,6,7,8,1,2,3]
+     *
+     * @param a   循环数组
+     * @param val 目标值
+     * @return
+     */
+    public static int searchValLoopArray(int[] a, int val) {
+        //循环的把数组一分为二，一部分有序，一部分没有顺序
+        //在有序部分查找，且val在这个区间
+        //临界条件
+        int n = a.length;
+        if (n == 0) {
+            return -1;
+        }
+        if (n == 1) {
+            return a[0] == val ? 0 : -1;
+        }
+        int l = 0;
+        int h = n - 1;
+        while (l <= h) {
+            int mid = l + ((h - l) >> 1);
+            if (a[mid] == val) {
+                return mid;
+            }
+            //判断哪个部分有序
+            if (a[0] <= a[mid]) {
+                //判断需要查找的值是否在这个区间
+                if (a[0] <= val && val < a[mid]) {
+                    //左边寻找
+                    h = mid - 1;
+                } else {
+                    //目标值不在这个有序区间内，往有寻找
+                    l = mid + 1;
+                }
+            } else {
+                //左边判断需要查找的值是否在这个区间
+                if (a[mid] < val && val <= a[n - 1]) {
+                    l = mid + 1;
+                } else {
+                    h = mid - 1;
+                }
             }
         }
         return -1;
