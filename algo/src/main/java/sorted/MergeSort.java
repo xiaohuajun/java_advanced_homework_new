@@ -12,9 +12,18 @@ public class MergeSort {
 
 
     public static void main(String[] args) {
-        int[] a = {9, 8, 3, 6, 2, 7};
-        mergeSort(a, a.length);
-        System.out.println("排序后的数组：" + Arrays.toString(a));
+        //int[] a = {9, 8, 3, 6, 2, 7};
+        //mergeSort(a, a.length);
+        //System.out.println("排序后的数组：" + Arrays.toString(a));
+        int a = 2;
+        int b = 7;
+        int c =  7 % 2;
+        int d = 7 & (2 -1);
+        int e = 2 % 7;
+        // a / b :如果 a < b 则结果是 0；大于的话：向下取整
+        int h = 2 / 5;
+
+        System.out.println("----" + e);
     }
 
 
