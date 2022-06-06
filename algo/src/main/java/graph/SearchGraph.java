@@ -9,7 +9,7 @@ import java.util.Queue;
  * @date 2022/6/4 上午11:11
  * @description SearchBfs 广度优先搜索：按照层次从起点开始搜索
  */
-public class SearchBfs {
+public class SearchGraph {
 
     /**
      * 图的顶点数量
@@ -66,7 +66,7 @@ public class SearchBfs {
                 int adjPoint = adjList.get(i);
                 //判断是否被访问过
                 if (!visited[adjPoint]) {
-                    //顶点相邻的顶点的路径
+                    //存储当前顶点的路径：表示当前节点所属的是vertex顶点
                     prev[adjPoint] = vertex;
                     if (adjPoint == t) {
                         //到终点，打印路径

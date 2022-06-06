@@ -6,7 +6,8 @@ import java.util.LinkedList;
  * @author xiaohuajun
  * @version 1.0
  * @date 2022/6/4 上午11:12
- * @description Graph 图的定义
+ * @description Graph 图的定义-使用的是邻接表来存储-链表
+ *
  */
 public class Graph {
 
@@ -31,8 +32,9 @@ public class Graph {
 
     /**
      * 为图中的顶点添加一条边
-     * 因为边是连接连个顶点，需要两个顶点都存储
+     * 因为边是连接连个顶点，需要两个顶点都存储-无向图
      *
+     * 有向图，就存一次
      * @param s 顶点
      * @param t 顶点
      */
