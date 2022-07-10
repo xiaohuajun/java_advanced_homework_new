@@ -18,7 +18,7 @@ public class Graph {
 
 
     /**
-     * 使用邻接表存储图：每个顶点连接的订单组织成一个链表
+     * 使用邻接表存储图：每个顶点连接的都组织成一个链表
      */
     private LinkedList<Integer>[] adj;
 
