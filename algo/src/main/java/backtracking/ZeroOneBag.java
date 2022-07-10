@@ -34,7 +34,7 @@ public class ZeroOneBag {
             }
             return;
         }
-        //考察下一个物品:先尝试所有的可能性，先遍历到末尾元素，从后往前装如背包
+        //考察下一个物品:先尝试所有的可能性，先遍历到末尾元素，从后往前装入背包
         calBagWeight(i + 1, cw, items, n, w);
         //剪枝
         if (cw + items[i] <= w) {
