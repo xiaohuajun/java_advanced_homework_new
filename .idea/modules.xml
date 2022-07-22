@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/algo/algo.iml" filepath="$PROJECT_DIR$/algo/algo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_advanced_homework_new.iml" filepath="$PROJECT_DIR$/.idea/java_advanced_homework_new.iml" />
       <module fileurl="file://$PROJECT_DIR$/week09/rpcfx-demo/rpcfx-demo-server.iml" filepath="$PROJECT_DIR$/week09/rpcfx-demo/rpcfx-demo-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/week05/starter/starter.iml" filepath="$PROJECT_DIR$/week05/starter/starter.iml" />
@@ -15,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/week08/week08.iml" filepath="$PROJECT_DIR$/week08/week08.iml" />
       <module fileurl="file://$PROJECT_DIR$/week09/week09.iml" filepath="$PROJECT_DIR$/week09/week09.iml" />
       <module fileurl="file://$PROJECT_DIR$/week10/week10.iml" filepath="$PROJECT_DIR$/week10/week10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week15/week15.iml" filepath="$PROJECT_DIR$/week15/week15.iml" />
     </modules>
   </component>
 </project>

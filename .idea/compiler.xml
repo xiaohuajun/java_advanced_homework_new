@@ -7,26 +7,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="rpcfx-demo-server" />
-        <module name="starter" />
-        <module name="week08" />
-        <module name="week07" />
-        <module name="week06" />
         <module name="week05" />
         <module name="week04" />
         <module name="week03" />
         <module name="week02" />
         <module name="week01" />
-        <module name="week09" />
+        <module name="week15" />
         <module name="week10" />
+        <module name="starter" />
+        <module name="rpcfx-demo-server" />
+        <module name="algo" />
+        <module name="week09" />
+        <module name="week08" />
+        <module name="week07" />
+        <module name="week06" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="rpcfc-demo-server" target="11" />
-      <module name="rpcfx-demo" target="11" />
-      <module name="rpcfx-demo-api" target="11" />
-      <module name="rpcfx-demo-client" target="11" />
-      <module name="rpcfx-demo-core" target="11" />
+    <bytecodeTargetLevel target="11">
+      <module name="algo" target="11" />
       <module name="rpcfx-demo-server" target="11" />
       <module name="starter" target="11" />
       <module name="week01" target="1.5" />
@@ -39,16 +37,11 @@
       <module name="week08" target="1.5" />
       <module name="week09" target="11" />
       <module name="week10" target="11" />
-      <module name="week11" target="1.5" />
+      <module name="week15" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="rpcfc-demo-server" options="-parameters" />
-      <module name="rpcfx-demo" options="-parameters" />
-      <module name="rpcfx-demo-api" options="-parameters" />
-      <module name="rpcfx-demo-client" options="-parameters" />
-      <module name="rpcfx-demo-core" options="-parameters" />
       <module name="rpcfx-demo-server" options="-parameters" />
     </option>
   </component>
