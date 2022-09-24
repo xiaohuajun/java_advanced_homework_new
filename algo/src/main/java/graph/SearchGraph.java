@@ -17,9 +17,9 @@ public class SearchGraph {
     private static final int V = 8;
 
     /**
-     * 初始化图
+     * 初始化图-无向图
      */
-    private static Graph graph = new Graph(V);
+    private static NotDirectionGraph graph = new NotDirectionGraph(V);
 
     /**
      * dfs判断是否找到终点
@@ -30,10 +30,10 @@ public class SearchGraph {
     /**
      * 从起点开始搜索到终点；输出路径
      * 1、三个变量存储：visited数组记录访问过的顶点，使用队列：记录下个层次需要遍历的节点
-     * prev数组存储访问过的路径：是反向存储的，输出路径反向输出
+     * prev数组：存储访问过的路径：是反向存储的，输出路径反向输出
      * <p>
-     * 重点是：
-     * 队列的特性来存储下一个层次需要遍历的顶点
+     * 重点：
+     * 队列的特性来：存储下一个层次需要遍历的顶点
      * 路径是反向存储的
      *
      * @param s 起点
@@ -45,7 +45,7 @@ public class SearchGraph {
         }
         //记录被访问过的节点
         boolean[] visited = new boolean[V];
-        //记录起点
+        //记录起点被访问过
         visited[s] = true;
         //使用一个队列存储下一层次的需要遍历的顶点-没有访问过的
         Queue<Integer> queue = new LinkedList<>();
@@ -59,7 +59,7 @@ public class SearchGraph {
         while (!queue.isEmpty()) {
             //获取顶点
             int vertex = queue.poll();
-            //获取顶点相邻的订单（邻接表里存储的）并遍历
+            //获取顶点相邻的顶点（邻接表里存储的）并遍历
             LinkedList<Integer> adjList = graph.getAdj()[vertex];
             for (int i = 0; i < adjList.size(); i++) {
                 //依次获取顶点的相邻节点

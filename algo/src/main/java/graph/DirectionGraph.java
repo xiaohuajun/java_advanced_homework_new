@@ -5,44 +5,52 @@ import java.util.LinkedList;
 /**
  * @author xiaohuajun
  * @version 1.0
- * @date 2022/6/4 上午11:12
- * @description Graph 图的定义-使用的是邻接表来存储-链表
+ * @date 2022/9/24 下午3:18
+ * @description Graph 有向图-邻接表存储
  *
  */
-public class Graph {
+public class DirectionGraph {
+
 
     /**
-     * 顶点个数
+     * 图的顶点个数
      */
-    private int v;
-
+    private int V;
 
     /**
-     * 使用邻接表存储图：每个顶点连接的都组织成一个链表
+     * 声明邻接表
      */
     private LinkedList<Integer>[] adj;
 
-    public Graph(int v) {
-        this.v = v;
+
+
+    public DirectionGraph(int v){
+        this.V = v;
+        //初始化，邻接表大小
         adj = new LinkedList[v];
         for (int i = 0; i < v; i++) {
+            //初始化每个顶点空的邻接表
             adj[i] = new LinkedList<>();
         }
     }
 
     /**
-     * 为图中的顶点添加一条边
+     * 为无向图中的顶点添加一条边
      *
      * 无向图:因为边是连接两个顶点，需要两个顶点都存储
+     * adj[s].add(t);
+     * adj[t].add(s);
+     *
      *
      * 有向图:就存一次  adj[s].add(t); s -> t
      * @param s 顶点
      * @param t 顶点
      */
-    public void addEdge(int s, int t) {
+    public void addEdge(int s,int t){
+        //顶点s的链表中添加t：s -> t
         adj[s].add(t);
-        adj[t].add(s);
     }
+
 
     public LinkedList<Integer>[] getAdj() {
         return adj;
@@ -51,5 +59,4 @@ public class Graph {
     public void setAdj(LinkedList<Integer>[] adj) {
         this.adj = adj;
     }
-
 }
