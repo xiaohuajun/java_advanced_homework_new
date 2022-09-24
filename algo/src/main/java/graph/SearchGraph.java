@@ -59,7 +59,7 @@ public class SearchGraph {
         while (!queue.isEmpty()) {
             //获取顶点
             int vertex = queue.poll();
-            //获取顶点相邻的顶点（邻接表里存储的）并遍历
+            //获取顶点相邻的其他顶点集合（邻接表里存储）并遍历（链表中存储的顶点）
             LinkedList<Integer> adjList = graph.getAdj()[vertex];
             for (int i = 0; i < adjList.size(); i++) {
                 //依次获取顶点的相邻节点
@@ -68,12 +68,14 @@ public class SearchGraph {
                 if (!visited[adjPoint]) {
                     //存储当前顶点的路径：表示当前节点所属的是vertex顶点
                     prev[adjPoint] = vertex;
+                    //判断是否到终点
                     if (adjPoint == t) {
                         //到终点，打印路径
                         print(prev, s, t);
                         return;
                     }
                     visited[adjPoint] = true;
+                    //加入队列作为下次访问
                     queue.add(adjPoint);
                 }
             }
@@ -110,24 +112,24 @@ public class SearchGraph {
 
     private static void recurFound(int s, int t, boolean[] visited, int[] prev) {
         //找到终点-终止条件
-        if(isFound){
+        if (isFound) {
             return;
         }
         visited[s] = true;
         //找到终点
-        if(s == t){
+        if (s == t) {
             isFound = true;
             return;
         }
-        //获取顶点s的相邻顶点，并遍历
+        //获取顶点s的相邻顶点集合，并遍历
         LinkedList<Integer> adj = graph.getAdj()[s];
         for (int i = 0; i < adj.size(); i++) {
             int adjPoint = adj.get(i);
-            if(!visited[adjPoint]){
+            if (!visited[adjPoint]) {
                 //顶点的路径
                 prev[adjPoint] = s;
-                //重复遍历下个顶点
-                recurFound(adjPoint,t,visited,prev);
+                //重复遍历adjPoint的下个顶点
+                recurFound(adjPoint, t, visited, prev);
             }
         }
     }
@@ -153,7 +155,7 @@ public class SearchGraph {
         graph.addEdge(5, 7);
         graph.addEdge(6, 7);
         //bfs(0, 6);
-        dfs(0,6);
+        dfs(0, 6);
     }
 
 
