@@ -14,7 +14,7 @@ public class DirectionGraph {
     /**
      * 图的顶点个数
      */
-    private int V;
+    private int v;
 
     /**
      * 声明邻接表
@@ -23,7 +23,7 @@ public class DirectionGraph {
 
 
     public DirectionGraph(int v) {
-        this.V = v;
+        this.v = v;
         //初始化，邻接表大小
         adj = new LinkedList[v];
         for (int i = 0; i < v; i++) {
