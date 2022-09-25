@@ -68,12 +68,63 @@ public class TopoLogicalSort {
         }
     }
 
+
+    /**
+     * 使用dfs实现拓扑排序
+     * 1、由于dfs遍历完一个顶点是会一直遍历的与这个顶点可达的顶点
+     * 2、对于一个顶点W 先输出 与W可达的顶点，再输出自己
+     * 综上所述
+     * 1、需要构建逆邻接表
+     */
+    public static void topoLogicalSortForDfs() {
+        //构建逆邻接表
+        LinkedList<Integer>[] inverseAdj = new LinkedList[V];
+        for (int i = 0; i < V; i++) {
+            inverseAdj[i] = new LinkedList<>();
+        }
+        for (int i = 0; i < V; i++) {
+            //顶点的邻接表
+            LinkedList<Integer> iPoints = graph.getAdj()[i];
+            for (int j = 0; j < iPoints.size(); j++) {
+                //i -> w
+                int w = iPoints.get(j);
+                // w -> i
+                inverseAdj[w].add(i);
+            }
+        }
+        boolean[] visited = new boolean[V];
+        for (int i = 0; i < V; i++) {
+            //没有被访问过
+            if (!visited[i]) {
+                visited[i] = true;
+                dfsInverseAdj(i, visited, inverseAdj);
+            }
+        }
+
+
+    }
+
+    private static void dfsInverseAdj(int i, boolean[] visited, LinkedList<Integer>[] inverseAdj) {
+        LinkedList<Integer> integers = inverseAdj[i];
+        for (int k = 0; k < integers.size(); k++) {
+            int h = integers.get(k);
+            //已经被访问过，继续遍历其他可达的顶点
+            if (visited[h]) {
+                continue;
+            }
+            dfsInverseAdj(h, visited, inverseAdj);
+        }
+        System.out.println("->" + i);
+
+    }
+
+
     public static void main(String[] args) {
-        graph.addEdge(0,1);
-        graph.addEdge(0,2);
-        graph.addEdge(1,3);
-        graph.addEdge(2,3);
-        topoLogicalSort();
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(1, 3);
+        graph.addEdge(2, 3);
+        topoLogicalSortForDfs();
     }
 
 }
