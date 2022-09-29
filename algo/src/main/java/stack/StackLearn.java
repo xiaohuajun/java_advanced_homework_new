@@ -2,6 +2,7 @@ package stack;
 
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Stack;
 
 /**
@@ -46,10 +47,11 @@ public class StackLearn {
 
 
     public static void main(String[] args) {
-        int[] s = {73, 74, 75, 71, 69, 72, 76, 73};
-        int[] ints = increaseStack(s);
-        String s1 = Arrays.toString(ints);
-        System.out.println("------>" + s1);
+        for (int i = 0; i < 2; i++) {
+            Random r = new Random();
+            int g = r.nextInt(12);
+            System.out.println("------>" + g);
+        }
     }
 
 }
