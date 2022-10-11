@@ -7,6 +7,7 @@ import java.util.LinkedList;
  * @version 1.0
  * @date 2022/9/24 下午3:18
  * @description Graph 有向图-邻接表存储
+ * 在真实地图中：有些路有障碍不通的就不需要建立边
  */
 public class DirectionGraph {
 

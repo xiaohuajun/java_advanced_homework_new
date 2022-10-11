@@ -1,6 +1,7 @@
 package base;
 
 import graph.Vertex;
+import graph.VertexMap;
 
 /**
  * @author xiaohuajun
@@ -34,7 +35,15 @@ public class PriorityQueueNew {
         //todo  后面实现
     }
 
+    public void add(VertexMap vertexMap) {
+        //todo  后面实现
+    }
+
     public void update(Vertex vertex) {
+        //todo  后面实现
+    }
+
+    public void update(VertexMap vertexMap) {
         //todo  后面实现
     }
 
@@ -43,5 +52,7 @@ public class PriorityQueueNew {
     }
 
 
-
+    public void clear() {
+        node = null;
+    }
 }

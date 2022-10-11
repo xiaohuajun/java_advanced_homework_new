@@ -15,7 +15,7 @@ public class Vertex {
     public int id;
 
     /**
-     * 起点顶点到该顶点的距离
+     * 起点到该顶点的距离
      */
     public int dist;
 

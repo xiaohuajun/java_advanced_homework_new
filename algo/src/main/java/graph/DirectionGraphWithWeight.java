@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * @author xiaohuajun
  * @version 1.0
  * @date 2022/9/28 下午5:48
- * @description DirectionGraphWithWeight 带着权重的边
+ * @description DirectionGraphWithWeight 带着边权重的有向图
  */
 public class DirectionGraphWithWeight {
 
@@ -14,6 +14,12 @@ public class DirectionGraphWithWeight {
      * 图的顶点个数
      */
     private int v;
+
+
+    /**
+     * 图中的顶点
+     */
+    public VertexMap[] vertexMaps;
 
     /**
      * 声明邻接表-带边
@@ -28,6 +34,7 @@ public class DirectionGraphWithWeight {
             //初始化每个顶点空的邻接表
             adj[i] = new LinkedList<>();
         }
+        vertexMaps = new VertexMap[v];
     }
 
     /**
@@ -46,6 +53,10 @@ public class DirectionGraphWithWeight {
     public void addEdge(int s, int t, int w) {
         //顶点s的链表中添加t：s -> t
         adj[s].add(new Edge(s, t, w));
+    }
+
+    public void addVertex(int id, int x, int y) {
+        vertexMaps[id] = new VertexMap(id, x, y);
     }
 
 

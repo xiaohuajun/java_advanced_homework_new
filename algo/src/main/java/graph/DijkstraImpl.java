@@ -46,9 +46,9 @@ public class DijkstraImpl {
         for (int i = 0; i < v; i++) {
             vertices[i] = new Vertex(i, Integer.MAX_VALUE);
         }
-        //构建小顶堆
+        //构建小顶堆-每次都能取最小
         PriorityQueueNew priorityQueueNew = new PriorityQueueNew(v);
-        //是否被访问过：是否需要放如队列
+        //顶点是否被访问过：是否需要放如队列
         boolean[] inQueue = new boolean[v];
         //从起点开始遍历，放入队列，设置起点的距离为0
         vertices[s].dist = 0;
@@ -61,12 +61,13 @@ public class DijkstraImpl {
             if (minVertex.id == t) {
                 break;
             }
-            //获取minVertex可达的顶点、计算起点到各个顶点的距离
+            //获取minVertex顶点的可达顶点、计算起点到各个可达顶点的距离
+            //一个顶点可能存在多条相连的边
             LinkedList<Edge> adj = graph.getAdj()[minVertex.id];
             for (int i = 0; i < adj.size(); i++) {
                 //获取当前的顶点的连着的边
                 Edge edge = adj.get(i);
-                //顶点之间距离
+                //顶点之间距离-边的权重
                 int w = edge.getW();
                 //获取当前的顶点
                 int tId = edge.gettId();
@@ -79,7 +80,7 @@ public class DijkstraImpl {
                     //存储最小的路径
                     prev[vertex.id] = minVertex.id;
                     if (inQueue[vertex.id]) {
-                        //更新当前顶点计算的新的距离
+                        //更新当前顶点计算的新的距离-保持最小堆的结构
                         priorityQueueNew.update(vertex);
                     } else {
                         priorityQueueNew.add(vertex);
