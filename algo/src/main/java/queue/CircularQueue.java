@@ -9,6 +9,7 @@ package queue;
  * 循环队列的队列满的条件：（tail + 1）% n = tail + 1
  * head 的移动：head = （head + 1）% n
  * tail 的移动：tail = （tail + 1）% n
+ * 缺点：浪费一个数组元素的存储空间，因为 tail + 1了
  */
 public class CircularQueue {
 
