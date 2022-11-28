@@ -50,4 +50,46 @@ public class CircularQueue {
         return item;
     }
 
+
+    public class Producer {
+
+        private CircularQueue circularQueue;
+
+        public Producer(CircularQueue circularQueue) {
+            this.circularQueue = circularQueue;
+        }
+
+
+        public void producer(String item) throws InterruptedException {
+            //轮询的方式，检测队列是否满
+            while (!circularQueue.enqueue(item)) {
+                Thread.sleep(100);
+            }
+        }
+    }
+
+
+    public class Consumer {
+
+        private CircularQueue circularQueue;
+
+        public Consumer(CircularQueue circularQueue) {
+            this.circularQueue = circularQueue;
+        }
+
+        public void consume() throws InterruptedException {
+            while (true) {
+                String item = circularQueue.dequeue();
+                //如果是空的话，轮询等待
+                if (item == null) {
+                    Thread.sleep(100);
+                } else {
+                    //todo 具体的消费处理业务逻辑
+                }
+            }
+
+        }
+
+    }
+
 }
