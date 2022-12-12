@@ -25,6 +25,7 @@ public class BubbleSort {
             boolean flag = false;
             //-i：每一轮下来已经排好序的数据
             //-1：没有排序部分最后一个数据不需要遍历
+            //这也是优化过：效果同bubbleSortOptimize方法
             for (int j = 0; j < n - i - 1; j++) {
                 //比较大小
                 if (a[j] > a[j + 1]) {

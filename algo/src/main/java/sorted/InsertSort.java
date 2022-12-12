@@ -21,7 +21,7 @@ public class InsertSort {
             //已经排序区的上边界:未排序区左边界 - 1
             int j = i - 1;
             //已排序区往后往前寻找未notSort元素的插入位置
-            for (; j >= 0; --j) {
+            for (; j >= 0; j--) {
                 if (a[j] > notSortVal) {
                     //已排序区的元素往后移动:腾出插入的位置
                     a[j + 1] = a[j];
