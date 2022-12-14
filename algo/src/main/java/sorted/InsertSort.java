@@ -35,10 +35,30 @@ public class InsertSort {
     }
 
 
+    public static void shellSort(int[] a, int n) {
+        if (n <= 1) {
+            return;
+        }
+        int stepDis = 2;
+        //按照步长分组
+        for (int step = n / stepDis; step >= 1; step /= stepDis) {
+            for (int i = step; i < n; i++) {
+                int tmp = a[i];
+                int j = i - step;
+                while(j >= 0 && a[j] > tmp){
+                    a[j + step] = a[j];
+                    j -= step;
+                }
+                a[j + step] = tmp;
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         int[] a = {4, 5, 6, 1, 3, 2};
         int n = 6;
-        insertSort(a, n);
+        shellSort(a, n);
         for (int i : a) {
             System.out.println("---->" + i);
         }

@@ -6,24 +6,15 @@ import java.util.Arrays;
  * @author xiaohuajun
  * @version 1.0
  * @date 2022/4/13 下午8:01
- * @description MergeSort 归并排序
+ * @description MergeSort 归并排序:时间复杂度 O(logn) 空间复杂度 O(n)：这也是和快排比劣势;
  */
 public class MergeSort {
 
 
     public static void main(String[] args) {
-        //int[] a = {9, 8, 3, 6, 2, 7};
-        //mergeSort(a, a.length);
-        //System.out.println("排序后的数组：" + Arrays.toString(a));
-        int a = 2;
-        int b = 7;
-        int c =  7 % 2;
-        int d = 7 & (2 -1);
-        int e = 2 % 7;
-        // a / b :如果 a < b 则结果是 0；大于的话：向下取整
-        int h = 2 / 5;
-
-        System.out.println("----" + e);
+        int[] a = {9, 8, 3, 6, 2, 7};
+        mergeSort(a, a.length);
+        System.out.println("排序后的数组：" + Arrays.toString(a));
     }
 
 
@@ -72,6 +63,7 @@ public class MergeSort {
         //判断哪个子数组还有剩余元素
         int start = i;
         int end = q;
+        //最后一轮j > r
         if (j <= r) {
             start = j;
             end = r;
