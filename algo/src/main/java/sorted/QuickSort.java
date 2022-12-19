@@ -27,6 +27,8 @@ public class QuickSort {
      * @return 分区点:把数组已经分为两个部分的数组小表
      */
     public static int partition(int[] a, int l, int r) {
+        //设置分区点：出现退化n平方
+        pivotSet(a, l, r);
         //选取最后一个作为比较的基点
         int pivot = a[r];
         int i = l;
@@ -46,6 +48,28 @@ public class QuickSort {
         a[r] = tmp;
         System.out.println("----分区点" + a[i]);
         return i;
+    }
+
+    private static void pivotSet(int[] a, int l, int r) {
+        //三数取中
+        int mid = (l + r) / 2;
+        if (a[l] > a[mid]) {
+            swap(a, l, mid);
+        }
+        if (a[l] > a[r]) {
+            swap(a, l, r);
+        }
+        if (a[mid] > a[r]) {
+            swap(a, mid, r);
+        }
+        swap(a, r - 1, mid);
+
+    }
+
+    private static void swap(int[] a, int s, int t) {
+        int tmp = a[s];
+        a[s] = a[t];
+        a[t] = tmp;
     }
 
     /**
@@ -74,14 +98,14 @@ public class QuickSort {
 
 
     public static void main(String[] args) {
-        int[] a = {11, 5, 14, 9, 7, 1, 4, 5};
+        int[] a = {11, 5, 14, 9, 7, 3, 4, 15};
         int k = 4;
-        //quickSort(a, 0,7);
-        int kthNum = findKthNum(a, k);
-        System.out.println("第" + k + "大的数：" + kthNum);
-        /*for (int i : a) {
+        quickSort(a, 0,7);
+        //int kthNum = findKthNum(a, k);
+        //System.out.println("第" + k + "大的数：" + kthNum);
+        for (int i : a) {
             System.out.println("---" + i);
-        }*/
+        }
     }
 
 
