@@ -5,6 +5,8 @@ package sorted;
  * @version 1.0
  * @date 2022/12/19 下午10:20
  * @description Heap 堆:完全二叉树，任意一个节点的值，大于等于（小于等于）子节点的值
+ * 从下标0开始构建堆，下标i节点的 左字节 2*i + 1；右节点 2*i + 2 父节点 i-1 / 2
+ * 从下标1开始构建堆，下标i节点的 左字节 2*i ；右节点 2*i + 1 父节点 i / 2
  */
 public class Heap {
 
@@ -34,19 +36,19 @@ public class Heap {
      *
      * @param val
      */
-    public void insert(int val) {
+    public  void insert(int val) {
         if (count == n) {
             return;
         }
         count++;
         a[count] = val;
         int i = count;
-        //i / 2 表示父节点，自下而上堆化 大顶堆 :a[i/2] > a[i]
-        while (i / 2 > 0 && a[i] > a[i / 2]) {
+        //i - 1 / 2 表示父节点，自下而上堆化 大顶堆 :a[i/2] > a[i]
+        while (a[i] > a[i - 1 / 2]) {
             //父节点 和 当前节点交换位置
-            swap(a, i, i / 2);
+            swap(a, i, i - 1 / 2);
             //当前节点变为父节点
-            i = i / 2;
+            i = i - 1 / 2;
         }
     }
 
@@ -144,7 +146,8 @@ public class Heap {
 
     public static void main(String[] args) {
         int[] a = {7, 5, 19, 8, 4, 1, 20, 13, 16};
-        heapSort(a);
+        int len = a.length - 1;
+        buildHeap(a,len);
         for (int i : a) {
             System.out.println("---" + i);
         }
