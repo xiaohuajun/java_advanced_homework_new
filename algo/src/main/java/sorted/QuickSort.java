@@ -27,7 +27,7 @@ public class QuickSort {
      * @return 分区点:把数组已经分为两个部分的数组小表
      */
     public static int partition(int[] a, int l, int r) {
-        //设置分区点：出现退化n平方
+        //设置分区点：防止出现退化n平方，当数组的有序度高，或者本身有序，每次都选择最后一个，n平方
         pivotSet(a, l, r);
         //选取最后一个作为比较的基点
         int pivot = a[r];
